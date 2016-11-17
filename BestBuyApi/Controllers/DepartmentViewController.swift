@@ -9,14 +9,19 @@
 import UIKit
 import ObjectMapper
 
-class DepartmentViewController: UIViewController {
+class DepartmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
 
-    var products = [Product]?
+    private var products = [Product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        self.tableView.register(UINib(nibName: "DepartmentCell", bundle: nil), forCellReuseIdentifier: "DepartmentCell")
         
         self.getProducts("")
     }
@@ -39,7 +44,7 @@ class DepartmentViewController: UIViewController {
             case let .success(response):
                 do {
                     if let products = try Mapper<BestBuyProducts>().map(JSONObject: response.mapJSON()){
-                        print(products)
+                        self.products = products.products!
                     } else {
                         self.showAlert("Parse Error", message: "Unable to parse object from BestBuy API")
                     }
@@ -55,5 +60,20 @@ class DepartmentViewController: UIViewController {
             }
         }
     }
-
+    
+    // MARK: - Table View
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.products.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 154
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DepartmentCell", for: indexPath) as! DepartmentCell
+        cell.setupDepartmentCell(product: self.products[indexPath.row])
+        return cell
+    }
 }

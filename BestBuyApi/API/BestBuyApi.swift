@@ -32,6 +32,7 @@ private extension String {
 }
 
 public enum BestBuy {
+    case categories(String)
     case products(String)
 }
 
@@ -39,6 +40,8 @@ extension BestBuy: TargetType {
     public var baseURL: URL { return URL(string: "https://api.bestbuy.com/v1")! }
     public var path: String {
         switch self {
+        case .categories(_):
+            return "/categories"
         case .products(_):
             return "/products(releaseDate>today&categoryPath.id in(cat02001))"
         }
@@ -48,6 +51,8 @@ extension BestBuy: TargetType {
     }
     public var parameters: [String: Any]? {
         switch self {
+        case .categories(_):
+            return ["format": "json", "show": "id,name", "pageSize": "2", "apiKey": "bd6j9ut3parb7csptftw74b5"]
         case .products(_):
             return ["apiKey": "bd6j9ut3parb7csptftw74b5", "format": "json", "pageSize": "10", "show": "sku,name,image,salePrice,customerTopRated", "sort": "bestSellingRank"]
         default:
@@ -59,6 +64,8 @@ extension BestBuy: TargetType {
     }
     public var validate: Bool {
         switch self {
+        case .categories(_):
+            return true
         case .products(_):
             return true
         default:
@@ -67,12 +74,10 @@ extension BestBuy: TargetType {
     }
     public var sampleData: Data {
         switch self {
+        case .categories(_):
+            return ".".data(using: String.Encoding.utf8)!
         case .products(_):
-            return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
-//        case .userProfile(let name):
-//            return "{\"login\": \"\(name)\", \"id\": 100}".data(using: String.Encoding.utf8)!
-//        case .userRepositories(_):
-//            return "[{\"name\": \"Repo Name\"}]".data(using: String.Encoding.utf8)!
+            return ".".data(using: String.Encoding.utf8)!
         }
     }
 }

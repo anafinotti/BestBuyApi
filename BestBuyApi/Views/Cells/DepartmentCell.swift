@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DepartmentCell: UITableViewCell {
 
@@ -21,7 +22,13 @@ class DepartmentCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setupDepartmentCell() {
+    func setupDepartmentCell(product: Product) {
+
+        self.departmentLabel.text = product.name
         
+        self.departmentImageView.sd_setImage(with: NSURL(string: product.image!) as URL!, placeholderImage: UIImage(), options: SDWebImageOptions.refreshCached) {
+            (image, error, cache, url) in
+            self.departmentImageView.image = image
+        }
     }
 }

@@ -7,4 +7,5 @@ target 'BestBuyApi' do
   pod 'Moya', '8.0.0-beta.4'
   pod 'Moya/RxSwift'
   pod 'ObjectMapper'
+  pod 'SDWebImage', '~>3.8'
 end

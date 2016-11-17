@@ -17,6 +17,9 @@
 		B00282DA1DDE157000631216 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B00282D81DDE157000631216 /* Roboto-Medium.ttf */; };
 		B00282DB1DDE157000631216 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B00282D91DDE157000631216 /* Roboto-Regular.ttf */; };
 		B00282E01DDE177400631216 /* DepartmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00282DF1DDE177400631216 /* DepartmentViewController.swift */; };
+		B00282F41DDE250200631216 /* BestBuyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00282F31DDE250200631216 /* BestBuyApi.swift */; };
+		B00282F71DDE344D00631216 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00282F61DDE344D00631216 /* Product.swift */; };
+		B00282F91DDE357E00631216 /* BestBuyProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00282F81DDE357E00631216 /* BestBuyProducts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		B00282D81DDE157000631216 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		B00282D91DDE157000631216 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		B00282DF1DDE177400631216 /* DepartmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentViewController.swift; sourceTree = "<group>"; };
+		B00282F31DDE250200631216 /* BestBuyApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestBuyApi.swift; sourceTree = "<group>"; };
+		B00282F61DDE344D00631216 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		B00282F81DDE357E00631216 /* BestBuyProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestBuyProducts.swift; sourceTree = "<group>"; };
 		D0CC2052E2941908B1342F82 /* Pods-BestBuyApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestBuyApi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BestBuyApi/Pods-BestBuyApi.debug.xcconfig"; sourceTree = "<group>"; };
 		F41E3500B1CD1CD7FD04D958 /* Pods-BestBuyApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestBuyApi.release.xcconfig"; path = "Pods/Target Support Files/Pods-BestBuyApi/Pods-BestBuyApi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,8 +93,11 @@
 			isa = PBXGroup;
 			children = (
 				B00282BA1DDE123600631216 /* AppDelegate.swift */,
+				B00282F21DDE24EE00631216 /* API */,
 				B00282DC1DDE172D00631216 /* Controllers */,
+				B00282F51DDE343900631216 /* Model */,
 				B00282D41DDE13F200631216 /* Resources */,
+				B00282E21DDE1C5000631216 /* Services */,
 				B00282CE1DDE12E800631216 /* Views */,
 			);
 			path = BestBuyApi;
@@ -140,6 +149,30 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		B00282E21DDE1C5000631216 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B00282F21DDE24EE00631216 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B00282F31DDE250200631216 /* BestBuyApi.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B00282F51DDE343900631216 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B00282F61DDE344D00631216 /* Product.swift */,
+				B00282F81DDE357E00631216 /* BestBuyProducts.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,6 +209,7 @@
 					B00282B61DDE123500631216 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = VZB2Z99GV8;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -267,9 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00282F91DDE357E00631216 /* BestBuyProducts.swift in Sources */,
 				B00282E01DDE177400631216 /* DepartmentViewController.swift in Sources */,
 				B00282D21DDE134100631216 /* DepartmentCell.swift in Sources */,
+				B00282F71DDE344D00631216 /* Product.swift in Sources */,
 				B00282BB1DDE123600631216 /* AppDelegate.swift in Sources */,
+				B00282F41DDE250200631216 /* BestBuyApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +472,7 @@
 				B00282CB1DDE123600631216 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

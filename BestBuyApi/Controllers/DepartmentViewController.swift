@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class DepartmentViewController: UIViewController {
+    
+    @IBOutlet var tableView: UITableView!
 
+    var products = [Product]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.getProducts("")
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +26,34 @@ class DepartmentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    fileprivate func showAlert(_ title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(ok)
+        present(alertController, animated: true, completion: nil)
     }
-    */
+    
+    func getProducts(_ username: String) {
+        _ = BestBuyProvider.request(.products(username)) { result in
+            switch result {
+            case let .success(response):
+                do {
+                    if let products = try Mapper<BestBuyProducts>().map(JSONObject: response.mapJSON()){
+                        print(products)
+                    } else {
+                        self.showAlert("Parse Error", message: "Unable to parse object from BestBuy API")
+                    }
+                } catch {
+                    self.showAlert("BestBuy api Error", message: "Unable to get response from api")
+                }
+                self.tableView.reloadData()
+            case let .failure(error):
+                guard let error = error as? CustomStringConvertible else {
+                    break
+                }
+                self.showAlert("GitHub Fetch", message: error.description)
+            }
+        }
+    }
 
 }

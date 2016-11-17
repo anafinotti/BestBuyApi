@@ -4,5 +4,7 @@
 target 'BestBuyApi' do
   use_frameworks!
   pod 'Alamofire', '~> 4.0'
-
+  pod 'Moya', '8.0.0-beta.4'
+  pod 'Moya/RxSwift'
+  pod 'ObjectMapper'
 end

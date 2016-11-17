@@ -11,8 +11,6 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let BASE_AUTHENTICATED_URL = "http://api.bestbuy.com/v1/"
-    
     var window: UIWindow?
 
 

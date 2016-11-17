@@ -13,7 +13,7 @@
         <scene sceneID="M9s-hV-84P">
             <objects>
                 <navigationController id="EzJ-im-Hjd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nmk-mm-z5q">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Nmk-mm-z5q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-511" y="107"/>
         </scene>
-        <!--Department View Controller-->
+        <!--Category View Controller-->
         <scene sceneID="FHp-3m-Ihn">
             <objects>
-                <viewController storyboardIdentifier="DepartmentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MhE-Ue-05W" customClass="DepartmentViewController" customModule="BestBuyApi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MhE-Ue-05W" customClass="CategoryViewController" customModule="BestBuyApi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ux5-9b-jxh"/>
                         <viewControllerLayoutGuide type="bottom" id="hbB-En-1nd"/>
@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="290" y="107"/>
         </scene>
-        <!--View Controller-->
+        <!--Product View Controller-->
         <scene sceneID="qga-Z6-0Q2">
             <objects>
-                <viewController id="RNy-Qq-ZPt" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RNy-Qq-ZPt" customClass="ProductViewController" customModule="BestBuyApi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="389-ys-YRS"/>
                         <viewControllerLayoutGuide type="bottom" id="Woi-6I-JBs"/>
@@ -86,6 +86,9 @@
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="NId-1K-iOp" id="wxQ-ct-4Vv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tHu-9i-fXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

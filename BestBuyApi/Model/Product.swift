@@ -13,7 +13,7 @@ class Product: Mappable {
     var sku: Int?
     var name: String?
     var image: String?
-    var salesPrice: CGFloat?
+    var salePrice: Double?
     var customerTopRated: Bool?
     
     required init?(map: Map) {
@@ -23,7 +23,7 @@ class Product: Mappable {
         sku    <- map["sku"]
         name <- map["name"]
         image <- map["image"]
-        salesPrice <- map["salesPrice"]
+        salePrice <- map["salePrice"]
         customerTopRated <- map["customerTopRated"]
     }
 }

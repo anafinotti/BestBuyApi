@@ -43,7 +43,7 @@ extension BestBuy: TargetType {
         case .categories(_):
             return "/categories"
         case .products(_):
-            return "/products(releaseDate>today&categoryPath.id in(cat02001))"
+            return "products(sku in(9157059,6911158,7835032,5998636,8880044, 6140355, 5834015,1805695, 5326164,1725175,4782022))"
         }
     }
     public var method: Moya.Method {

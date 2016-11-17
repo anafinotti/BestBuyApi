@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ProductCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="130" id="oP1-6k-nke" customClass="ProductCell" customModule="BestBuyApi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oP1-6k-nke" id="28e-B5-Afj">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="129"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jh4-sj-qTw">
+                        <rect key="frame" x="8" y="4" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="MJU-Gm-CQn"/>
+                            <constraint firstAttribute="width" constant="100" id="WC9-n0-CLU"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJg-cV-Td3">
+                        <rect key="frame" x="116" y="8" width="164" height="57"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="57" id="MEl-QP-I1i"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$9.99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXj-Ex-eDX">
+                        <rect key="frame" x="116" y="83" width="196" height="26.5"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                        <color key="textColor" red="0.31372549020000001" green="0.16862745100000001" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4e-dg-1ZG">
+                        <rect key="frame" x="292" y="8" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="S3H-mD-cnQ"/>
+                            <constraint firstAttribute="height" constant="20" id="u6L-12-ef1"/>
+                        </constraints>
+                        <state key="normal" image="share-arrow"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="jh4-sj-qTw" firstAttribute="leading" secondItem="28e-B5-Afj" secondAttribute="leading" constant="8" id="1QP-lZ-IJT"/>
+                    <constraint firstAttribute="trailing" secondItem="AXj-Ex-eDX" secondAttribute="trailing" constant="8" id="2mp-In-zs1"/>
+                    <constraint firstItem="fJg-cV-Td3" firstAttribute="leading" secondItem="jh4-sj-qTw" secondAttribute="trailing" constant="8" id="3n7-wv-Qgp"/>
+                    <constraint firstAttribute="bottom" secondItem="jh4-sj-qTw" secondAttribute="bottom" constant="4" id="BRW-fm-gY1"/>
+                    <constraint firstAttribute="trailing" secondItem="fJg-cV-Td3" secondAttribute="trailing" constant="40" id="Rqx-KC-A5L"/>
+                    <constraint firstItem="fJg-cV-Td3" firstAttribute="top" secondItem="28e-B5-Afj" secondAttribute="top" constant="8" id="VWm-EL-hlC"/>
+                    <constraint firstAttribute="bottom" secondItem="AXj-Ex-eDX" secondAttribute="bottom" constant="4" id="WWC-yj-SRP"/>
+                    <constraint firstItem="P4e-dg-1ZG" firstAttribute="top" secondItem="28e-B5-Afj" secondAttribute="top" constant="8" id="jso-gP-ri9"/>
+                    <constraint firstItem="AXj-Ex-eDX" firstAttribute="top" secondItem="fJg-cV-Td3" secondAttribute="bottom" constant="18" id="nP5-6I-Eom"/>
+                    <constraint firstItem="AXj-Ex-eDX" firstAttribute="leading" secondItem="jh4-sj-qTw" secondAttribute="trailing" constant="8" id="pvg-QD-cR6"/>
+                    <constraint firstItem="jh4-sj-qTw" firstAttribute="top" secondItem="28e-B5-Afj" secondAttribute="top" constant="4" id="sVI-Fj-l6f"/>
+                    <constraint firstAttribute="trailing" secondItem="P4e-dg-1ZG" secondAttribute="trailing" constant="8" id="yeS-Hi-M5o"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="productImageView" destination="jh4-sj-qTw" id="mwr-NK-eiG"/>
+                <outlet property="productNameLabel" destination="fJg-cV-Td3" id="81w-aL-SxT"/>
+                <outlet property="productPriceLabel" destination="AXj-Ex-eDX" id="eOR-b7-2iS"/>
+                <outlet property="shareButton" destination="P4e-dg-1ZG" id="fM9-vs-ERK"/>
+            </connections>
+            <point key="canvasLocation" x="37" y="52"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="share-arrow" width="128" height="128"/>
+    </resources>
+</document>

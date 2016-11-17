@@ -1,5 +1,5 @@
 //
-//  DepartmentViewController.swift
+//  ProductViewController.swift
 //  BestBuyApi
 //
 //  Created by Ana Finotti on 11/17/16.
@@ -9,10 +9,10 @@
 import UIKit
 import ObjectMapper
 
-class DepartmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    @IBOutlet var tableView: UITableView!
+class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet var tableView: UITableView!
+    
     private var products = [Product]()
     
     override func viewDidLoad() {
@@ -21,14 +21,14 @@ class DepartmentViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.tableView.register(UINib(nibName: "DepartmentCell", bundle: nil), forCellReuseIdentifier: "DepartmentCell")
+        self.tableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: "ProductCell")
         
-        self.getProducts("")
+        self.getProducts()
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     fileprivate func showAlert(_ title: String, message: String) {
@@ -38,8 +38,8 @@ class DepartmentViewController: UIViewController, UITableViewDelegate, UITableVi
         present(alertController, animated: true, completion: nil)
     }
     
-    func getProducts(_ username: String) {
-        _ = BestBuyProvider.request(.products(username)) { result in
+    func getProducts() {
+        _ = BestBuyProvider.request(.products("")) { result in
             switch result {
             case let .success(response):
                 do {
@@ -68,12 +68,13 @@ class DepartmentViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 154
+        return 130
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DepartmentCell", for: indexPath) as! DepartmentCell
-        cell.setupDepartmentCell(product: self.products[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCell
+        
+        cell.setupProductCell(product: self.products[indexPath.row])
         return cell
     }
 }

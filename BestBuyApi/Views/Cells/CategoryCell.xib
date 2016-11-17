@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="CategoryCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="140" id="KGk-i7-Jjw" customClass="CategoryCell" customModule="BestBuyApi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="319" height="139"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cIb-6B-o2t">
+                        <rect key="frame" x="0.0" y="0.0" width="319" height="140"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="140" id="1WJ-tq-CKF"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Om8-Up-zky">
+                        <rect key="frame" x="8" y="36" width="303" height="29.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="6Na-Yc-3XY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="22"/>
+                        <color key="textColor" red="0.87788461539999996" green="0.87788461539999996" blue="0.87788461539999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Om8-Up-zky" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="36" id="7jp-N4-LDN"/>
+                    <constraint firstAttribute="trailing" secondItem="cIb-6B-o2t" secondAttribute="trailing" id="Ohv-Xo-dIc"/>
+                    <constraint firstItem="cIb-6B-o2t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WVt-zm-b0u"/>
+                    <constraint firstAttribute="bottom" secondItem="Om8-Up-zky" secondAttribute="bottom" constant="36" id="Xhd-Ru-Zow"/>
+                    <constraint firstAttribute="bottom" secondItem="cIb-6B-o2t" secondAttribute="bottom" id="oUe-iV-s1e"/>
+                    <constraint firstItem="cIb-6B-o2t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qim-WK-6uk"/>
+                    <constraint firstItem="Om8-Up-zky" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="rJL-9D-2YX"/>
+                    <constraint firstAttribute="trailing" secondItem="Om8-Up-zky" secondAttribute="trailing" constant="8" id="yDl-tK-Qr1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="categoryImageView" destination="cIb-6B-o2t" id="Fsj-Xj-DK3"/>
+                <outlet property="categoryLabel" destination="Om8-Up-zky" id="jor-K7-dJi"/>
+            </connections>
+            <point key="canvasLocation" x="61.5" y="112"/>
+        </tableViewCell>
+    </objects>
+</document>

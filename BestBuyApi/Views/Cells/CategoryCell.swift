@@ -1,5 +1,5 @@
 //
-//  CategoriesCell.swift
+//  CategoryCell.swift
 //  BestBuyApi
 //
 //  Created by Ana Finotti on 11/17/16.
@@ -8,13 +8,10 @@
 
 import UIKit
 
-class CategoriesCell: UITableViewCell {
+class CategoryCell: UITableViewCell {
 
-    @IBOutlet var productImageView: UIImageView!
-    @IBOutlet var productNameLabel: UILabel!
-    @IBOutlet var productPriceLabel: UILabel!
-    @IBOutlet var shareButton: UIButton!
-    
+    @IBOutlet var categoryLabel: UILabel!
+    @IBOutlet var categoryImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,8 +19,10 @@ class CategoriesCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    func setupCategorieCell() {
+        self.categoryLabel.text = "Super Hero Movies"
+        self.categoryImageView.image = UIImage(named: "super-hero")
+    }
 }

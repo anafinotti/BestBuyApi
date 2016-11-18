@@ -37,13 +37,37 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.getProducts()
         
+        searchController.searchBar.barStyle = .default
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         self.tableView.tableHeaderView = searchController.searchBar
         
-     //   let rightBar = UIBarButtonItem(
+        let ascendingRightBarButton = UIBarButtonItem(image: UIImage(named:"sort-by-ascending"), style: .plain, target: self, action: #selector(ProductViewController.sortByAscendingPrice))
+        
+        let decrescentRightBarButton = UIBarButtonItem(image: UIImage(named:"sort-by-decrescent"), style: .plain, target: self, action: #selector(ProductViewController.sortByDecrescentPrice))
+        
 
+        self.navigationItem.rightBarButtonItems = [decrescentRightBarButton, ascendingRightBarButton]
+
+    }
+    
+    func sortByAscendingPrice() {
+        self.products.sort { ($0.salePrice?.isLessThanOrEqualTo($1.salePrice!))! }
+        self.tableView.reloadData()
+    }
+    func sortByDecrescentPrice() {
+        self.products.sort { (!($0.salePrice?.isLessThanOrEqualTo($1.salePrice!))!) }
+        self.tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,6 +140,14 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else {
             product = products[indexPath.row]
         }
+        
+        let selectedProductViewController = self.storyboard?.instantiateViewController(withIdentifier: "SelectedProductViewController") as! SelectedProductViewController
+        
+        selectedProductViewController.title = product?.name
+        selectedProductViewController.selectedProduct = product
+        
+        self.navigationController?.pushViewController(selectedProductViewController, animated: true)
+        
     }
 }
 

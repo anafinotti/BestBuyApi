@@ -15,6 +15,18 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     private var products = [Product]()
     
+    private var filteredProducts = [Product]()
+    
+    let searchController = UISearchController(searchResultsController: nil)
+
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredProducts = products.filter { product in
+            return (product.name?.lowercased().contains(searchText.lowercased()))!
+        }
+        
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +36,11 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: "ProductCell")
         
         self.getProducts()
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        self.tableView.tableHeaderView = searchController.searchBar
 
     }
 
@@ -56,7 +73,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
-                self.showAlert("GitHub Fetch", message: error.description)
+                self.showAlert("BestBuy api Error", message: error.description)
             }
         }
     }
@@ -64,6 +81,9 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - Table View
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredProducts.count
+        }
         return self.products.count
     }
     
@@ -74,7 +94,26 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCell
         
-        cell.setupProductCell(product: self.products[indexPath.row])
+        var product: Product?
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            product = filteredProducts[indexPath.row]
+        } else {
+            product = products[indexPath.row]
+        }
+        
+        cell.setupProductCell(product: product!)
         return cell
+    }
+}
+
+extension ProductViewController: UISearchResultsUpdating {
+    @available(iOS 8.0, *)
+    public func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
 }

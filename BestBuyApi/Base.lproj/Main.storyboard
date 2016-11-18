@@ -63,7 +63,7 @@
         <!--Product View Controller-->
         <scene sceneID="qga-Z6-0Q2">
             <objects>
-                <viewController storyboardIdentifier="ProductViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RNy-Qq-ZPt" customClass="ProductViewController" customModule="BestBuyApi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductViewController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RNy-Qq-ZPt" customClass="ProductViewController" customModule="BestBuyApi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="389-ys-YRS"/>
                         <viewControllerLayoutGuide type="bottom" id="Woi-6I-JBs"/>
@@ -85,6 +85,7 @@
                             <constraint firstItem="NId-1K-iOp" firstAttribute="leading" secondItem="Yhc-Fu-Uf2" secondAttribute="leading" id="WyA-bZ-8Sg"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="NId-1K-iOp" id="wxQ-ct-4Vv"/>

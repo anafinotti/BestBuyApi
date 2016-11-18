@@ -25,6 +25,7 @@
 		B0AE6EA81DDE43A700420548 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE6EA71DDE43A700420548 /* ProductViewController.swift */; };
 		B0AE6EAA1DDE463300420548 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE6EA91DDE463300420548 /* Category.swift */; };
 		B0AE6EAC1DDE473B00420548 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE6EAB1DDE473B00420548 /* Categories.swift */; };
+		B0AE6EB11DDEA56A00420548 /* SelectedProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AE6EB01DDEA56A00420548 /* SelectedProductViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		B0AE6EA71DDE43A700420548 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		B0AE6EA91DDE463300420548 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B0AE6EAB1DDE473B00420548 /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		B0AE6EB01DDEA56A00420548 /* SelectedProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedProductViewController.swift; sourceTree = "<group>"; };
 		D0CC2052E2941908B1342F82 /* Pods-BestBuyApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestBuyApi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BestBuyApi/Pods-BestBuyApi.debug.xcconfig"; sourceTree = "<group>"; };
 		F41E3500B1CD1CD7FD04D958 /* Pods-BestBuyApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestBuyApi.release.xcconfig"; path = "Pods/Target Support Files/Pods-BestBuyApi/Pods-BestBuyApi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 			children = (
 				B00282DF1DDE177400631216 /* CategoryViewController.swift */,
 				B0AE6EA71DDE43A700420548 /* ProductViewController.swift */,
+				B0AE6EB01DDEA56A00420548 /* SelectedProductViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				B00282F91DDE357E00631216 /* BestBuyProducts.swift in Sources */,
 				B0AE6EA51DDE3FDA00420548 /* CategoryCell.swift in Sources */,
 				B00282E01DDE177400631216 /* CategoryViewController.swift in Sources */,
+				B0AE6EB11DDEA56A00420548 /* SelectedProductViewController.swift in Sources */,
 				B00282D21DDE134100631216 /* ProductCell.swift in Sources */,
 				B00282F71DDE344D00631216 /* Product.swift in Sources */,
 				B00282BB1DDE123600631216 /* AppDelegate.swift in Sources */,

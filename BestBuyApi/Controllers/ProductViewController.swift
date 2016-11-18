@@ -41,6 +41,8 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         self.tableView.tableHeaderView = searchController.searchBar
+        
+     //   let rightBar = UIBarButtonItem(
 
     }
 
@@ -104,6 +106,16 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.setupProductCell(product: product!)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var product: Product?
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            product = filteredProducts[indexPath.row]
+        } else {
+            product = products[indexPath.row]
+        }
     }
 }
 

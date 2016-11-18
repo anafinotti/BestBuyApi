@@ -19,6 +19,20 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     let searchController = UISearchController(searchResultsController: nil)
 
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ProductViewController.handleRefresh), for: UIControlEvents.valueChanged)
+        
+        return refreshControl
+    }()
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        self.getProducts()
+        
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredProducts = products.filter { product in
             return (product.name?.lowercased().contains(searchText.lowercased()))!
@@ -32,6 +46,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView!.addSubview(self.refreshControl)
         
         self.tableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: "ProductCell")
         

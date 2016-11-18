@@ -109,7 +109,6 @@
 				B00282DC1DDE172D00631216 /* Controllers */,
 				B00282F51DDE343900631216 /* Model */,
 				B00282D41DDE13F200631216 /* Resources */,
-				B00282E21DDE1C5000631216 /* Services */,
 				B00282CE1DDE12E800631216 /* Views */,
 			);
 			path = BestBuyApi;
@@ -163,13 +162,6 @@
 				B0AE6EB01DDEA56A00420548 /* SelectedProductViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		B00282E21DDE1C5000631216 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		B00282F21DDE24EE00631216 /* API */ = {

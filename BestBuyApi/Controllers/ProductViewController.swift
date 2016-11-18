@@ -8,6 +8,7 @@
 
 import UIKit
 import ObjectMapper
+import SVProgressHUD
 
 class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -97,9 +98,11 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func getProducts() {
+        SVProgressHUD.show()
         _ = BestBuyProvider.request(.products("")) { result in
             switch result {
             case let .success(response):
+                SVProgressHUD.dismiss()
                 do {
                     if let products = try Mapper<BestBuyProducts>().map(JSONObject: response.mapJSON()){
                         self.products = products.products!
@@ -111,6 +114,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
                 self.tableView.reloadData()
             case let .failure(error):
+                SVProgressHUD.dismiss()
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
